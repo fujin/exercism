@@ -1,29 +1,28 @@
 package raindrops
 
 import (
-	"bytes"
-	"fmt"
+	"strconv"
 )
 
 // Convert function receives an integer describing a sound and appends to a buffer based on the sound. It's based on the 'fizz buzz' concept.
-func Convert(sound int) string {
-	var buffer bytes.Buffer
+func Convert(sound int) (result string) {
+
 	if sound%3 == 0 {
-		buffer.WriteString("Pling")
+		result += "Pling"
 	}
 
 	if sound%5 == 0 {
-		buffer.WriteString("Plang")
+		result += "Plang"
 	}
 
 	if sound%7 == 0 {
-		buffer.WriteString("Plong")
+		result += "Plong"
 	}
 
 	if sound%3 != 0 &&
 		sound%5 != 0 &&
 		sound%7 != 0 {
-		buffer.WriteString(fmt.Sprintf("%d", sound))
+		result += strconv.Itoa(sound)
 	}
-	return buffer.String()
+	return
 }
